@@ -29,6 +29,13 @@ The program writes `entry.txt` (mode 0644), exits 0, and produces
 byte-identical output on every run. It uses no network, no randomness,
 and no time dependence.
 
+Before writing, the program self-checks the line against the
+competition gate: it must be a single line of valid text, between 1
+and 240 characters, and not only whitespace. After writing, it reads
+`entry.txt` back and confirms the file holds exactly that line plus
+one trailing newline. If either check fails, the program exits
+non-zero with a clear error instead of writing a bad file.
+
 ## License
 
 MIT — see `LICENSE`.
